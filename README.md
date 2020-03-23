@@ -6,19 +6,21 @@ A protocol for designing oligos for microbiome samples. Under construction now
 ## Table of content
 
 - [Installation](#installation)
-    - [ARB](#ARB-installation)
-    - [microbiome FISH](#R-package-and-dependencies)
+    - [ARB install and setup](#ARB-installation)
+    - [microbiomeFISH install and setup](#R-package-and-dependencies)
 
 
 ## Installation
 
 Several softwares are required for this protocol:
 1. [ARB](http://www.arb-home.de/downloads.html) for initial probe design
-2. R, [OligoArrayAux](http://unafold.rna.albany.edu/?q=DINAMelt/OligoArrayAux) microbiomeFISH r package
+2. [R](https://cran.r-project.org/mirrors.html), [OligoArrayAux](http://unafold.rna.albany.edu/?q=DINAMelt/OligoArrayAux) microbiomeFISH r package
 
 ### ARB installation
 
-If you want to install Aimeos into your existing TYPO3 installation, the [Aimeos extension from the TER](https://typo3.org/extensions/repository/view/aimeos) is recommended. You can download and install it directly from the Extension Manager of your TYPO3 instance.
+[The ARB software](http://http://www.arb-home.de/) is a graphically oriented package comprising various tools for sequence database handling and data analysis.
+
+
 
 For new TYPO3 installations, there's a 1-click [Aimeos distribution](https://typo3.org/extensions/repository/view/aimeos_dist) available too. Choose the Aimeos distribution from the list of available distributions in the Extension Manager and you will get a completely set up shop system including demo data for a quick start.
 
