@@ -5,20 +5,21 @@ A protocol for designing oligos for microbiome samples. Under construction now
 
 ## Table of content
 
-- [Installation](#installation)
-    - [ARB install and setup](#ARB-installation)
-    - [microbiomeFISH install and setup](#R-package-and-dependencies)
+- [Preparation](#preparation)
+    - [ARB install](#ARB-installation)
+    - [microbiomeFISH install](#R-package-and-dependencies)
 
 
-## Installation
+## Preparation
 
-Several softwares are required for this protocol:
-1. [ARB](http://www.arb-home.de/downloads.html) for initial probe design
-2. [R](https://cran.r-project.org/mirrors.html), [OligoArrayAux](http://unafold.rna.albany.edu/?q=DINAMelt/OligoArrayAux) microbiomeFISH r package
+Several softwares/datafiles are required for this protocol:
+1. **ARB** for initial probe design
+2. The curated **human intestinal 16s rRNA pool** files 
+3. **R**, **OligoArrayAux** and **microbiomeFISH** r package for probe screening
 
-### ARB installation
+### ARB installation and setup
 
-[The ARB software](http://http://www.arb-home.de/) is a graphically oriented package comprising various tools for sequence database handling and data analysis.
+[The ARB software](http://http://www.arb-home.de/) is a graphically oriented package comprising various tools for sequence database handling and data analysis. We will use this software for intial targeting sequece identification. The installation guidence is [here](http://www.arb-home.de/downloads.html)
 
 
 
