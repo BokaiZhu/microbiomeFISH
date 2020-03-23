@@ -1,0 +1,8 @@
+Package: microbiomeFISH
+Type: Package
+Version: 0.0.1
+Depends: R, Biostrings, RSQLite, stats, parallel, dplyr, tidyr, DECIPHER, TmCalculator, progress, seqinr
+Imports: methods, S4Vectors, IRanges, XVector
+LinkingTo: Biostrings, S4Vectors, IRanges, XVector
+License: GPL-3
+ByteCompile: true
