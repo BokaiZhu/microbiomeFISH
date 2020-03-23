@@ -7,14 +7,14 @@ A protocol for designing oligos for microbiome samples. Under construction now
 
 - [Installation](#installation)
     - [ARB](#ARB-installation)
-    - [microbiome FISH](#R-package and dependencies)
+    - [microbiome FISH](#R-package-and-dependencies)
 
 
 ## Installation
 
 Several softwares are required for this protocol:
-1. [ARB](http://www.arb-home.de/) for initial probe design
-2. R, the microbiomeFISH r package
+1. [ARB](http://www.arb-home.de/downloads.html) for initial probe design
+2. R, [OligoArrayAux](http://unafold.rna.albany.edu/?q=DINAMelt/OligoArrayAux) microbiomeFISH r package
 
 ### ARB installation
 
