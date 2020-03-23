@@ -7,15 +7,14 @@ A protocol for designing oligos for microbiome samples. Under construction now
 
 - [Installation](#installation)
     - [ARB](#ARB-installation)
-    - [microbiome FISH R package](#R-package)
+    - [microbiome FISH](#R-package and dependencies)
 
 
 ## Installation
 
-This document is for the latest Aimeos TYPO3 **19.10 release and later**.
-
-- LTS release: 19.10 (TYPO3 7/8/9 LTS)
-- Beta release: 20.01 (TYPO3 8/9 LTS)
+Several softwares are required for this protocol:
+1. [ARB](http://www.arb-home.de/) for initial probe design
+2. R, the microbiomeFISH r package
 
 ### ARB installation
 
@@ -23,6 +22,6 @@ If you want to install Aimeos into your existing TYPO3 installation, the [Aimeos
 
 For new TYPO3 installations, there's a 1-click [Aimeos distribution](https://typo3.org/extensions/repository/view/aimeos_dist) available too. Choose the Aimeos distribution from the list of available distributions in the Extension Manager and you will get a completely set up shop system including demo data for a quick start.
 
-### R package
+### R package and dependencies
 
 The latest version can be installed via composer too. This is especially useful if you want to create new TYPO3 installations automatically or play with the latest code. You need to install the composer package first if it isn't already available:
