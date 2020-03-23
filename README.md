@@ -26,13 +26,23 @@ After successfuly installing ARB, you should be able to fire it up in terminal b
 
 <p align="center"><img width=80%% src="https://github.com/BokaiZhu/microbiomeFISH/blob/master/media/arb_start.gif"></p>
 
-### Sequence pool database
+### Sequence Pool Database
 
 These files are the curated sequence pool containing 12,932 near full length 16s rRNA sequences, assigned with taxonomy information. The detailed process of producing these files can be found in the paper.
 
+Here we have 6 files in the data folder, each with the same sequence pool fasta file, but header contains the assigned taxonomy information at each phylogeny level. 
 
+<p align="left"><img width=20%% src="https://github.com/BokaiZhu/microbiomeFISH/blob/master/media/pool_files.png"></p>
+
+You can [download](https://github.com/BokaiZhu/microbiomeFISH/tree/master/data) the files and use them as inputs for probe design.
 
 
 ### R package and dependencies
 
-The latest version can be installed via composer too. This is especially useful if you want to create new TYPO3 installations automatically or play with the latest code. You need to install the composer package first if it isn't already available:
+[R](https://www.r-project.org/) is a prerequiste for this part (not too surprising). You can install the microbiomeFISH r package by in R by:
+
+```R
+install.packages("devtools") # if you have not installed "devtools" package
+devtools::install_github("BokaiZhu/microbiomeFISH")
+```
+
