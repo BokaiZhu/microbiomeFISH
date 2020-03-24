@@ -102,11 +102,12 @@ Then we will filter the candidate probes. Here we will perform the hybridization
 We will select the candidate probes with ΔGo2 > -1.5 kcal/mol (Good secondary structure described by [mathFISH](http://mathfish.cee.wisc.edu/helpdocuments.html#deltaG2%20series)), [predicted hybridization effieciency](https://aem.asm.org/content/80/16/5124)  > 85%. You can also select probes with the conventional Tm (at the supplied experiment condition) provided in the table.
 
 ```R
-high_coverage <- subset(staph,staph$cover==18) # only test the ones with 100% coverage, since we have plenty of them
+# only test the ones with 100% coverage, since we have plenty of them
+high_coverage <- subset(staph,staph$cover==18) 
 filtered <- probeFilter(high_coverage,35,46,0.39) # at the very harsh condidtion
 probes <- subset(filtered,filtered$secondary>-1.5 & filtered$Hybeff>0.85)
 View(probes)
 ```
-<p align="center"><img width=90%% src="https://github.com/BokaiZhu/microbiomeFISH/blob/master/media/filtered.png"></p>
+<p align="center"><img width=120%% src="https://github.com/BokaiZhu/microbiomeFISH/blob/master/media/filtered.png"></p>
 
-Here we can see the table has three new columns added to the end : secondary, the ΔGo2 value; Hybeff, the predicted hybridization effieciency; and the Conventional Tm.
+Here we can see the table has three new columns added to the end : secondary, the ΔGo2 value; Hybeff, the predicted hybridization effieciency; and the Conventional Tm. The filtered probes we got here are bascially different variations of the same location. You can order the probes directly for testing, or you can also use the secondary system ([in method](somelink to paper secondary part)) to save money in a long run.
