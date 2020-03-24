@@ -82,7 +82,7 @@ Here we will let ARB find candidate sequences that cover > 85% of the Staphyloco
 
 <p align="center"><img width=50%% src="https://github.com/BokaiZhu/microbiomeFISH/blob/master/media/arb_design.png"></p>
 
-Hit **design** , save the resulting .prb file and we are ready for the next step.
+Hit **Go** , save the resulting .prb file and we are ready for the next step.
 
 In some other cases you might want to tolerate a few outgroup hitting, as some outgroup sequence might belong to the target group but not assigned to that taxonomy with enough confident, discussed in the [paper](https://unix.stackexchange.com/questions/26047/how-to-correctly-add-a-path-to-path), or simply one single probe is naturally incabable to cover some target groups without outgroup hitting. We will discuss more in the optional section.
 
@@ -97,9 +97,9 @@ view(staph)
 <p align="center"><img width=90%% src="https://github.com/BokaiZhu/microbiomeFISH/blob/master/media/r_input_arnb.png"></p>
 From left to right the columns are: candidate target sequence, length of target, region of the target, start site (Ecoli position), in-group sequence coverage, out-group hit (perfect match), out-group hit (+ 0.3 C), out-group hit (+ 0.6 C) and the corresponding candidate probe sequence.
 
-Then we will filter the candidate probes. Here we will perform the hybirdization as the protocol described in the [paper](http:), therefore the input of the function will be 35% formamide, 46C hybirdization, with 0.39Molar sodium (2 x SSCT). 
+Then we will filter the candidate probes. Here we will perform the hybridization as the protocol described in the [paper](http:), therefore the input of the function will be 35% formamide, 46C hybridization, with 0.39Molar sodium (2 x SSCT). 
 
-We will select the candidate probes with ΔGo2 > -1.5 kcal/mol (Good secondary structure described by [mathFISH](http://mathfish.cee.wisc.edu/helpdocuments.html#deltaG2%20series)), [predicted hybirdization effieciency](https://aem.asm.org/content/80/16/5124)  > 85%. You can also select probes with the conventional Tm (at the supplied experiment condition) provided in the table.
+We will select the candidate probes with ΔGo2 > -1.5 kcal/mol (Good secondary structure described by [mathFISH](http://mathfish.cee.wisc.edu/helpdocuments.html#deltaG2%20series)), [predicted hybridization effieciency](https://aem.asm.org/content/80/16/5124)  > 85%. You can also select probes with the conventional Tm (at the supplied experiment condition) provided in the table.
 
 ```R
 high_coverage <- subset(staph,staph$cover==18) # only test the ones with 100% coverage, since we have plenty of them
@@ -107,3 +107,6 @@ filtered <- probeFilter(high_coverage,35,46,0.39) # at the very harsh condidtion
 probes <- subset(filtered,filtered$secondary>-1.5 & filtered$Hybeff>0.85)
 View(probes)
 ```
+<p align="center"><img width=90%% src="https://github.com/BokaiZhu/microbiomeFISH/blob/master/media/filtered.png"></p>
+
+Here we can see the table has three new columns added to the end : secondary, the ΔGo2 value; Hybeff, the predicted hybridization effieciency; and the Conventional Tm.
