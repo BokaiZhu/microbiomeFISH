@@ -10,7 +10,9 @@ A protocol for designing oligos for microbiome samples. Under construction now
     - [Sequence pool database](#Sequence-pool-database)
     - [microbiomeFISH install](#R-package-and-dependencies)
 - [Probe designing](#probe-designing)
-
+    - [Part 1 arb](#part-1-arb)
+    - [Part 2 r](#part-2-r)
+    
 
 ## Preparation
 
@@ -70,7 +72,8 @@ Now you have everything ready!!
 
 ## Probe designing
 
-Here we will showcase a probe designing scenario, where we want to design a probe that targets the genus Staphylococcus in the context of human microbiome containing samples. We can input the Genus.fasta file into ARB:
+### Part 1 arb
+Here we will showcase a probe designing scenario, where we want to design a probe that targets the genus Staphylococcus in the context of human microbiome containing samples. We can input the **Genus.fasta** file into ARB:
 
 <p align="center"><img width=40%% src="https://github.com/BokaiZhu/microbiomeFISH/blob/master/media/input_arb.png"></p>
 
@@ -82,5 +85,6 @@ We have 18 sequences in the sequence pool assigned to the genuse Staphylococcus.
 Here we will let ARB find candidate sequences that cover > 85% of the Staphylococcus sequences, and hitting 0 sequences outside of the group (In some other cases you might want to tolerate a few outgroup hitting, as some outgroup sequence might belong to the target group but not assigned to that taxonomy with enough confident, discussed in the [paper](https://unix.stackexchange.com/questions/26047/how-to-correctly-add-a-path-to-path). 
 
 <p align="center"><img width=50%% src="https://github.com/BokaiZhu/microbiomeFISH/blob/master/media/arb_design.png"></p>
+Hit **Design**, save the resulting .prb file and we are ready for the next step.
 
-
+### Part 2 r
