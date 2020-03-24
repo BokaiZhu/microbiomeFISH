@@ -11,7 +11,7 @@ A protocol for designing oligos for microbiome samples. Under construction now
     - [microbiomeFISH install](#R-package-and-dependencies)
 - [Probe designing showcase](#probe-designing-showcase)
     - [Part 1 arb](#part-1-arb)
-    - [Part 2 r](#part-2-r)
+    - [Part 2 R](#part-2-r)
     
 
 ## Preparation
@@ -81,11 +81,12 @@ We have 18 sequences in the sequence pool assigned to the genuse Staphylococcus.
 Here we will let ARB find candidate sequences that cover > 85% of the Staphylococcus sequences, and hitting 0 sequences outside of the group. 
 
 <p align="center"><img width=50%% src="https://github.com/BokaiZhu/microbiomeFISH/blob/master/media/arb_design.png"></p>
-Hit **Design**, save the resulting .prb file and we are ready for the next step.
 
-In some other cases you might want to tolerate a few outgroup hitting, as some outgroup sequence might belong to the target group but not assigned to that taxonomy with enough confident, discussed in the [paper](https://unix.stackexchange.com/questions/26047/how-to-correctly-add-a-path-to-path), or simply one single probe is naturally incabable to cover some target groups without outgroup hitting. 
+Hit **design** , save the resulting .prb file and we are ready for the next step.
 
-### Part 2 r
+In some other cases you might want to tolerate a few outgroup hitting, as some outgroup sequence might belong to the target group but not assigned to that taxonomy with enough confident, discussed in the [paper](https://unix.stackexchange.com/questions/26047/how-to-correctly-add-a-path-to-path), or simply one single probe is naturally incabable to cover some target groups without outgroup hitting. We will discuss more in the optional section.
+
+### Part 2 R
 
 Now you can load your saved .prb file into r for downstream analysis by:
 ```R
