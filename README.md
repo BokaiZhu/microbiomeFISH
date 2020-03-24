@@ -9,6 +9,7 @@ A protocol for designing oligos for microbiome samples. Under construction now
     - [ARB install](#ARB-installation)
     - [Sequence pool database](#Sequence-pool-database)
     - [microbiomeFISH install](#R-package-and-dependencies)
+- [Probe designing](#probe-designing)
 
 
 ## Preparation
@@ -34,7 +35,7 @@ Here we have 6 files in the data folder, each with the same sequence pool fasta 
 
 <p align="left"><img width=18%% src="https://github.com/BokaiZhu/microbiomeFISH/blob/master/media/pool_files.png"></p>
 
-You can [download](https://github.com/BokaiZhu/microbiomeFISH/tree/master/data) the files and use them as inputs for probe design.
+You can [download](https://github.com/BokaiZhu/microbiomeFISH/tree/master/data) the fasta files and use them as inputs for probe design.
 
 
 ### R package and dependencies
@@ -51,7 +52,7 @@ This r package also requires OligoArrayAux to calculate the secondary structure 
 ```R
 system("hybrid-min -V") # calling the hybrid-min function in r
 ```
-it should give:
+it should give something like:
 ```
 hybrid-min (OligoArrayAux) 3.8
 By Nicholas R. Markham and Michael Zuker
@@ -59,9 +60,27 @@ Copyright (C) 2006
 Rensselaer Polytechnic Institute
 Troy, NY 12810-3590 USA
 ```
-If it is not working first make sure you have correctly add [PATH](https://unix.stackexchange.com/questions/26047/how-to-correctly-add-a-path-to-path) for the function.
-
+If it is not working first make sure you have correctly add [PATH](https://unix.stackexchange.com/questions/26047/how-to-correctly-add-a-path-to-path) to the function.
 If you are using Rstudio on a server, you need to tell R to use the local user's path too:
 ```R
 Sys.setenv(PATH=paste(Sys.getenv("PATH"), "/home/user/bin", sep=":"))
 ```
+
+Now you have everything ready!!
+
+## Probe designing
+
+Here we will showcase a probe designing scenario, where we want to design a probe that targets the genus Staphylococcus in the context of human microbiome containing samples. We can input the Genus.fasta file into ARB:
+
+<p align="center"><img width=40%% src="https://github.com/BokaiZhu/microbiomeFISH/blob/master/media/input_arb.png"></p>
+
+We will use the 'found ID' during the input popup. Then will build the arb server with the option under **Probes** -> **PT_Server_admin**. It should be relatively fast. Once the server is build we can start to design the probes. Search for all the sequence names Staphylococcus, select them by **mark listed and unmark rest**:
+<p align="center"><img width=100%% src="https://github.com/BokaiZhu/microbiomeFISH/blob/master/media/search_staph.png"></p>
+
+We have 18 sequences in the sequence pool assigned to the genuse Staphylococcus. Let ARB find signature sequence that covers this 18 sequences at the same time does not cover out-group bacteria sequences. Design by option under **Probes** -> **Design Probes**. 
+
+Here we will let ARB find candidate sequences that cover > 85% of the Staphylococcus sequences, and hitting 0 sequences outside of the group (In some other cases you might want to tolerate a few outgroup hitting, as some outgroup sequence might belong to the target group but not assigned to that taxonomy with enough confident, discussed in the [paper](https://unix.stackexchange.com/questions/26047/how-to-correctly-add-a-path-to-path). 
+
+<p align="center"><img width=50%% src="https://github.com/BokaiZhu/microbiomeFISH/blob/master/media/arb_design.png"></p>
+
+
