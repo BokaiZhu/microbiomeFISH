@@ -2,6 +2,7 @@
 
 # microbiomeFISH
 A protocol for designing oligos for microbiome samples. Under construction now
+<p align="left"><img width=80%% src="https://github.com/BokaiZhu/microbiomeFISH/blob/master/media/place-holder.png"></p>
 
 ## Table of content
 
