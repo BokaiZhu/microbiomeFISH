@@ -5,6 +5,11 @@ Trio_optimization=function(df,target_group,usearch_location,reference_fasta,num_
   locations=unique(df$location)
   combination=combn(locations,3) # the combinations of the locations, combination of three
 
+  ## first we need to make a temp fasta file with unique header, modified with the input reference data
+  awk_command="awk '/^>/{$0=$0\"_\"(++i)}1'"
+  temp_header_fasta=paste0(reference_fasta,".temp.fa")
+  system(paste(awk_command,reference_fasta,">",temp_header_fasta))
+
   # a dataframe to store the combination
 
   per_comb=as.integer(num_result/dim(combination)[2]) # the number of results per combination
@@ -48,7 +53,7 @@ Trio_optimization=function(df,target_group,usearch_location,reference_fasta,num_
     write.fasta(contain_comb[m,c("target1","target2","target3")],c("1","2","3"),"temp.fasta")
 
     # start the usearching
-    system(paste(usearch_location,"-usearch_global", "temp.fasta -db",reference_fasta, "-id 1 -strand plus -maxaccepts 100000 -blast6out temp2.txt --quiet"))
+    system(paste(usearch_location,"-usearch_global", "temp.fasta -db",temp_header_fasta, "-id 1 -strand plus -maxaccepts 100000 -blast6out temp2.txt --quiet"))
     #system("~/applications/usearch/usearch_test -usearch_global temp.fasta -db phylum_header.fasta -id 1 -strand plus -maxaccepts 10000 -blast6out temp2.txt")
     #
 
@@ -81,6 +86,7 @@ Trio_optimization=function(df,target_group,usearch_location,reference_fasta,num_
   contain_comb$target1=NULL
   contain_comb$target2=NULL
   contain_comb$target3=NULL
+  file.remove(temp_header_fasta)
   # clear out complete
   return(contain_comb)
 }
