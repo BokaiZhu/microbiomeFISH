@@ -13,7 +13,7 @@ A protocol for designing oligos for microbiome samples. Under construction now
 - [Probe designing showcase](#probe-designing-showcase)
     - [Part 1 arb](#part-1-arb)
     - [Part 2 R](#part-2-r)
-    
+- [F&Q](#f&q)    
 
 ## Preparation
 
@@ -113,4 +113,6 @@ View(probes)
 
 Here we can see the table has three new columns added to the end : secondary, the ΔGo2 value; Hybeff, the predicted hybridization effieciency; and the Conventional Tm. The filtered probes we got here are bascially different variations of the same location. You can order the probes directly for testing, or you can also use the secondary system ([in method](somelink to paper secondary part)) to test more probes (as we would expect not all probes will work perfectly in the actual experimental validation).
 
+### F&Q
 
+1. Q: I'm having trouble installing arb
