@@ -24,7 +24,7 @@ Several softwares/datafiles are required for this protocol:
 
 ### ARB installation and setup
 
-[The ARB software](http://http://www.arb-home.de/) is a graphically oriented package comprising various tools for sequence database handling and data analysis. We will use this software for intial targeting sequece identification. The installation files are [here](http://www.arb-home.de/downloads.html). The detailed installation instruction is [here](http://download.arb-home.de/release/latest/arb_README.txt)
+[The ARB software](http://http://www.arb-home.de/) is a graphically oriented package comprising various tools for sequence database handling and data analysis. We will use this software for intial targeting sequece identification. The installation files are [here](http://www.arb-home.de/downloads.html). The detailed installation instruction is [here](http://download.arb-home.de/release/latest/arb_README.txt). If you are experience trouble installing arb in windows, refer to the **F&Q** section
 
 After successfuly installing ARB, you should be able to fire it up in terminal by typing arb:
 
@@ -157,7 +157,9 @@ Here we can see the table has three new columns added to the end : secondary, th
 
 ### F&Q
 
-1. Q: I'm having trouble installing arb
+**Q**: I'm having trouble installing arb in Windows.
+
+**A**: 
 
 **Q**: During target site selection in ARB, what parameters I should input?
 
