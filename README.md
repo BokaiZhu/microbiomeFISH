@@ -42,8 +42,9 @@ These files are the curated sequence pool containing 12,932 near full length 16s
 [R](https://www.r-project.org/) is a prerequiste for this part (not too surprising). You can install the microbiomeFISH r package in R by:
 
 ```R
-install.packages("devtools") # if you have not installed "devtools" package
-devtools::install_github("BokaiZhu/microbiomeFISH")
+install.packages("devtools") # if you have not installed "devtools" package yet
+install.packages("BiocManager") # if you have not installed bioconductor yet
+devtools::install_github("BokaiZhu/microbiomeFISH",auth_token="230b203a38ae97ff5187cb24ba75205dce2e27d5", repos=BiocManager::repositories(),force = TRUE)
 ```
 
 This r package also requires OligoArrayAux to calculate the secondary structure of the probes. [Download](http://mfold.rna.albany.edu/?q=DINAMelt/OligoArrayAux) and install the software. Test if the software is installed correctly by runing the code in r :
@@ -116,3 +117,9 @@ Here we can see the table has three new columns added to the end : secondary, th
 ### F&Q
 
 1. Q: I'm having trouble installing arb
+
+Q: During target site selection in ARB, what parameters I should input?
+
+A: Generally, depends on the biological question you want to ask. Usually a probe with 100% coverage and 0 outgroup hitting will be rare to find. Play with the parameters a few times until you feel comfotable about the result. Also, you should tolerate some out-group hitting sometimes. You can check the matching result in ARB, and if you see your Staphylococcus probe is hitting sequences annotated as "unknown_staphylococcus", it is advised to ignore these hitting.
+
+
