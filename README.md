@@ -47,7 +47,10 @@ install.packages("BiocManager") # if you have not installed bioconductor yet
 devtools::install_github("BokaiZhu/microbiomeFISH",auth_token="230b203a38ae97ff5187cb24ba75205dce2e27d5", repos=BiocManager::repositories(),force = TRUE)
 ```
 
-This r package also requires OligoArrayAux to calculate the secondary structure of the probes. [Download](http://mfold.rna.albany.edu/?q=DINAMelt/OligoArrayAux) and install the software. Test if the software is installed correctly by runing the code in r :
+This r package also requires OligoArrayAux to calculate the secondary structure of the probes. [Download](http://mfold.rna.albany.edu/?q=DINAMelt/OligoArrayAux) and install the software. 
+
+
+Test if the software is installed correctly by runing the code in r :
 
 ```R
 system("hybrid-min -V") # calling the hybrid-min function in r
@@ -60,7 +63,23 @@ Copyright (C) 2006
 Rensselaer Polytechnic Institute
 Troy, NY 12810-3590 USA
 ```
-If it is not working first make sure you have correctly add [PATH](https://unix.stackexchange.com/questions/26047/how-to-correctly-add-a-path-to-path) to the function.
+If it is not working first make sure you have correctly add [PATH](https://unix.stackexchange.com/questions/26047/how-to-correctly-add-a-path-to-path) to the function. For people installing from source (.tar.bz2/.tar.gz files), briefly the installing steps are:
+
+```
+# in your bash terminal:
+# uncompress the oligoarryaux
+tar xzf oligoarrayaux-3.8.tar.gz # or: tar oligoarrayaux-3.8.tar.bz2
+```
+Then move to the uncompressed directory.
+
+```
+cd /Path/to/oligoarrayaux-3.8/
+```
+Then compile the source code:
+```
+make
+```
+
 If you are using Rstudio on a server, you need to tell R to use the local user's path too:
 ```R
 Sys.setenv(PATH=paste(Sys.getenv("PATH"), "/home/user/bin", sep=":"))
