@@ -51,25 +51,25 @@ This r package also requires **OligoArrayAux** to calculate the secondary struct
 
 For people installing from source (.tar.bz2/.tar.gz files), here is a brief tutorial:
 
-```
+```zsh
 ### in your bash terminal :
 ### uncompress the oligoarryaux
 tar xzf oligoarrayaux-3.8.tar.gz 
 ### or: tar oligoarrayaux-3.8.tar.bz2
 ```
 Then move to the uncompressed directory.
-```
+```sh
 ### in your bash terminal :
 cd /Path/to/oligoarrayaux-3.8/
 ```
 Then compile the source code:
-```
+```sh
 ### in your bash terminal :
 make
 ```
 
 If you are compiling on a **server**, or compiling on windows-loaded-ubuntu, try something like this instead ($HOME should be your home directory):
-```
+```sh
 ### in your bash terminal :
 /.configure --prefix=$HOME
 make
