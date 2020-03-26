@@ -75,8 +75,10 @@ If you are compiling on a **server**, or compiling on windows-loaded-ubuntu, try
 make
 make install
 ```
-Finally, add the path to oligoauxarray to your system:
+Finally, add the path to oligoauxarray to your system files ```~/.bashrc``` or ```~/.bash_profile```:
 ```
+### wait for yh's code to check
+export PATH=$PATH:/Path/To/Jellyfish/jellyfish-2.2.6
 ```
 
 Test if the software is installed correctly by runing the code in r :
@@ -100,10 +102,12 @@ Troy, NY 12810-3590 USA
 
 If you are using Rstudio on a server, you need to tell R to use the local user's path too:
 ```R
+### in R
 Sys.setenv(PATH=paste(Sys.getenv("PATH"), "/home/user/bin", sep=":"))
 ```
+Now should be able to call oligoarrayaux in R on a server.
 
-Now you have everything ready!!
+
 
 ## Probe designing showcase
 
