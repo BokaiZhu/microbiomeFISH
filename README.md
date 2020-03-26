@@ -159,8 +159,8 @@ Here we can see the table has three new columns added to the end : secondary, th
 
 1. Q: I'm having trouble installing arb
 
-Q: During target site selection in ARB, what parameters I should input?
+**Q**: During target site selection in ARB, what parameters I should input?
 
-A: Generally, depends on the biological question you want to ask. Usually a probe with 100% coverage and 0 outgroup hitting will be rare to find. Play with the parameters a few times until you feel comfotable about the result. Also, you should tolerate some out-group hitting sometimes. You can check the matching result in ARB, and if you see your Staphylococcus probe is hitting sequences annotated as "unknown_staphylococcus", it is advised to ignore these hitting.
+**A**: Generally, depends on the biological question you want to ask. Usually a probe with 100% coverage and 0 outgroup hitting will be rare to find. Play with the parameters a few times until you feel comfotable about the result. Also, you should tolerate some out-group hitting sometimes. You can check the matching result in ARB, and if you see your Staphylococcus probe is hitting sequences annotated as "unknown_staphylococcus", it is advised to ignore these hitting.
 
 
