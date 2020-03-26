@@ -24,7 +24,7 @@ Several softwares/datafiles are required for this protocol:
 
 ### ARB installation and setup
 
-[The ARB software](http://http://www.arb-home.de/) is a graphically oriented package comprising various tools for sequence database handling and data analysis. We will use this software for intial targeting sequece identification. The installation guidence is [here](http://www.arb-home.de/downloads.html).
+[The ARB software](http://http://www.arb-home.de/) is a graphically oriented package comprising various tools for sequence database handling and data analysis. We will use this software for intial targeting sequece identification. The installation files are [here](http://www.arb-home.de/downloads.html). The detailed installation instruction is [here](http://download.arb-home.de/release/latest/arb_README.txt)
 
 After successfuly installing ARB, you should be able to fire it up in terminal by typing arb:
 
@@ -51,7 +51,7 @@ This r package also requires **OligoArrayAux** to calculate the secondary struct
 
 For people installing from source (.tar.bz2/.tar.gz files), here is a brief tutorial:
 
-```zsh
+```sh
 ### in your bash terminal :
 ### uncompress the oligoarryaux
 tar xzf oligoarrayaux-3.8.tar.gz 
@@ -76,7 +76,7 @@ make
 make install
 ```
 Finally, add the path to oligoauxarray to your system files ```~/.bashrc``` or ```~/.bash_profile```:
-```
+```sh
 ### wait for yh's code to check
 export PATH=$PATH:/Path/To/Jellyfish/jellyfish-2.2.6
 ```
