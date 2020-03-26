@@ -47,37 +47,55 @@ install.packages("BiocManager") # if you have not installed bioconductor yet
 devtools::install_github("BokaiZhu/microbiomeFISH",auth_token="230b203a38ae97ff5187cb24ba75205dce2e27d5", repos=BiocManager::repositories(),force = TRUE)
 ```
 
-This r package also requires OligoArrayAux to calculate the secondary structure of the probes. [Download](http://mfold.rna.albany.edu/?q=DINAMelt/OligoArrayAux) and install the software. 
+This r package also requires **OligoArrayAux** to calculate the secondary structure of the probes. [Download](http://mfold.rna.albany.edu/?q=DINAMelt/OligoArrayAux) and install the software. 
 
+For people installing from source (.tar.bz2/.tar.gz files), here is a brief tutorial:
+
+```
+### in your bash terminal :
+### uncompress the oligoarryaux
+tar xzf oligoarrayaux-3.8.tar.gz 
+### or: tar oligoarrayaux-3.8.tar.bz2
+```
+Then move to the uncompressed directory.
+```
+### in your bash terminal :
+cd /Path/to/oligoarrayaux-3.8/
+```
+Then compile the source code:
+```
+### in your bash terminal :
+make
+```
+
+If you are compiling on a **server**, or compiling on windows-loaded-ubuntu, try something like this instead ($HOME should be your home directory):
+```
+### in your bash terminal :
+/.configure --prefix=$HOME
+make
+make install
+```
+Finally, add the path to oligoauxarray to your system:
+```
+```
 
 Test if the software is installed correctly by runing the code in r :
 
 ```R
+### in R
 system("hybrid-min -V") # calling the hybrid-min function in r
+
+# or when you are using R on a windows system:
+system("bash something hybrid-min -V") # calling the hybrid-min function in r
 ```
 it should give something like:
 ```
+### result in R console
 hybrid-min (OligoArrayAux) 3.8
 By Nicholas R. Markham and Michael Zuker
 Copyright (C) 2006
 Rensselaer Polytechnic Institute
 Troy, NY 12810-3590 USA
-```
-If it is not working first make sure you have correctly add [PATH](https://unix.stackexchange.com/questions/26047/how-to-correctly-add-a-path-to-path) to the function. For people installing from source (.tar.bz2/.tar.gz files), briefly the installing steps are:
-
-```
-# in your bash terminal:
-# uncompress the oligoarryaux
-tar xzf oligoarrayaux-3.8.tar.gz # or: tar oligoarrayaux-3.8.tar.bz2
-```
-Then move to the uncompressed directory.
-
-```
-cd /Path/to/oligoarrayaux-3.8/
-```
-Then compile the source code:
-```
-make
 ```
 
 If you are using Rstudio on a server, you need to tell R to use the local user's path too:
