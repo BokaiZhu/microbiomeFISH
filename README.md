@@ -13,7 +13,7 @@ A protocol for designing oligos for microbiome samples. Under construction now
 - [Probe designing showcase](#probe-designing-showcase)
     - [Part 1 arb](#part-1-arb)
     - [Part 2 R](#part-2-r)
-    - [Part 3 Optional: multiple probe design](#Part-3-Optional:-multiple-probe-design])
+    - [Part 3 Optional: multiple probe design](#part-3-optional:-multiple-probe-design])
 - [F&Q](#f&q)    
 
 ## Preparation
