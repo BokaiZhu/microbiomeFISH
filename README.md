@@ -13,7 +13,7 @@ A protocol for designing oligos for microbiome samples. Under construction now
 - [Probe designing showcase](#probe-designing-showcase)
     - [Part 1 arb](#part-1-arb)
     - [Part 2 R](#part-2-r)
-    - [test](#test)
+    - [Part 3 Optional multiple probe design](#part-3-optional-multiple-probe-design)
 - [F&Q](#f&q)    
 
 ## Preparation
@@ -156,7 +156,7 @@ View(probes)
 
 Here we can see the table has three new columns added to the end : secondary, the ΔGo2 value; Hybeff, the predicted hybridization effieciency; and the Conventional Tm. The filtered probes we got here are bascially different variations of the same location. You can order the probes directly for testing, or you can also use the secondary system ([in method](somelink to paper secondary part)) to test more probes (as we would expect not all probes will work perfectly in the actual experimental validation).
 
-### test
+### Part 3 Optional multiple probe design
 
 We have briefly mentioned before, that in some cases, single probe does not provide the desired coverage and specificity. For example, we want to design a probe targeting the class **Gammaproteobacteria**, with Coverage > 80% of the sequences and less than 10 hits outside of the target group. After screening the candidate probes based on our experiment condition (2 x SSCT, 35% formamide, 46C):
 
