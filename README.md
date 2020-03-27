@@ -13,6 +13,7 @@ A protocol for designing oligos for microbiome samples. Under construction now
 - [Probe designing showcase](#probe-designing-showcase)
     - [Part 1 arb](#part-1-arb)
     - [Part 2 R](#part-2-r)
+    - [Part 3 Optional: multiple probe design](#Part-3-Optional:-multiple-probe-design])
 - [F&Q](#f&q)    
 
 ## Preparation
@@ -154,6 +155,28 @@ View(probes)
 <p align="center"><img width=120%% src="https://github.com/BokaiZhu/microbiomeFISH/blob/master/media/filtered.png"></p>
 
 Here we can see the table has three new columns added to the end : secondary, the ΔGo2 value; Hybeff, the predicted hybridization effieciency; and the Conventional Tm. The filtered probes we got here are bascially different variations of the same location. You can order the probes directly for testing, or you can also use the secondary system ([in method](somelink to paper secondary part)) to test more probes (as we would expect not all probes will work perfectly in the actual experimental validation).
+
+### Part 3 Optional: multiple probe design
+
+We have briefly mentioned before, that in some cases, single probe does not provide the desired coverage and specificity. For example, we want to design a probe targeting the class **Gammaproteobacteria**, with Coverage > 80% of the sequences and less than 10 hits outside of the target group. After screening the candidate probes based on our experiment condition (2 x SSCT, 35% formamide, 46C):
+
+```R
+gammaproteobacteria=read_arb("~/paper/Num1/code_related/microbiomeFISH/data/gamma_10_80_1000.prb")
+lowhit=subset(gammaproteobacteria,gammaproteobacteria$third<=10)
+filtered=probeFilter(lowhit,35,46,0.39)
+candidate=subset(filtered,filtered$secondary>-2 & new$Hybeff>0.8)
+```
+The head of the resulting candidate table. We can see none of these probes will performe well in our setting, with the low hybridization efficiency and low Tm.
+
+<p align="center"><img width=120%% src="https://github.com/BokaiZhu/microbiomeFISH/blob/master/media/gamma_80%25_result.png"></p>
+
+How do we tackle this problem? We can combine multiple single probes, with each probe having lower-than-required coverage, together covering the desired numbers and providing the specificity. In the package we provided two functions to combine and test the coverage and specificity of 2 or 3 probe-combinations. Those steps require another stand-alone sowftware **Usearch**, an ultrafast blast tool. We also suggest this step to be performed on a server, since it could take time and space.
+
+Install the Usearch software [here](https://www.drive5.com/usearch/download.html). Successful installment should give:
+```zsh
+## in your bash console
+
+```
 
 ### F&Q
 
