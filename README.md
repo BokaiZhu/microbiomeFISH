@@ -174,9 +174,9 @@ How do we tackle this problem? We can combine multiple single probes, with each 
 
 [Download](https://www.drive5.com/usearch/download.html) Usearch and install it. The detailed guidence can be found [here](https://www.drive5.com/usearch/manual/install.html). Successful installment should give:
 
-```zsh
-## in your bash console
-~/directory/to/usearch/file/usearch6.0.98_i86linux32orsomethinglikethat
+```R
+## in your R console
+system("~/directory/to/usearch/file/usearch6.0.98_i86linux32-or-something-like-that")
 
 ```
 
