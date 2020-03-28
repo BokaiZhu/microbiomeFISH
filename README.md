@@ -25,7 +25,9 @@ Several softwares/datafiles are required for this protocol:
 
 ### ARB installation and setup
 
-[The ARB software](http://http://www.arb-home.de/) is a graphically oriented package comprising various tools for sequence database handling and data analysis. We will use this software for intial targeting sequece identification. The installation files can be [downloaded](http://www.arb-home.de/downloads.html). The detailed guidance can be found [here](http://download.arb-home.de/release/latest/arb_README.txt). If you are experience trouble installing arb in windows, refer to the **F&Q** section
+[The ARB software](http://http://www.arb-home.de/) is a graphically oriented package comprising various tools for sequence database handling and data analysis. We will use this software for intial targeting sequece identification. The installation files can be [downloaded](http://www.arb-home.de/downloads.html). The detailed guidance can be found [here](http://download.arb-home.de/release/latest/arb_README.txt). For Mac users, it is suggested to use Macport to easily install ARB.
+
+If you are experience trouble installing arb in windows, refer to the **F&Q** section
 
 After successfuly installing ARB, you should be able to fire it up in terminal by typing arb:
 
@@ -158,15 +160,15 @@ Here we can see the table has three new columns added to the end : secondary, th
 
 ### Part 3 Optional multiple probe design
 
-We have briefly mentioned before, that in some cases, single probe does not provide the desired coverage and specificity. For example, we want to design a probe targeting the class **Gammaproteobacteria**, with Coverage > 80% of the sequences and less than 10 hits outside of the target group. After screening the candidate probes based on our experiment condition (2 x SSCT, 35% formamide, 46C):
+We have briefly mentioned before, that in some cases, single probe does not provide the desired coverage and specificity. For example, we want to design a probe targeting the class **Gammaproteobacteria**, with Coverage **> 80%** of the sequences and less than **10 hits** outside of the target group. After screening the candidate probes based on our experiment condition (2 x SSCT, 35% formamide, 46C):
 
 ```R
 gammaproteobacteria=read_arb("~/paper/Num1/code_related/microbiomeFISH/data/gamma_10_80_1000.prb")
 lowhit=subset(gammaproteobacteria,gammaproteobacteria$third<=10)
 filtered=probeFilter(lowhit,35,46,0.39)
-candidate=subset(filtered,filtered$secondary>-2 & filtered$Hybeff>0.8)
+View(filtered)
 ```
-The head of the resulting candidate table. We can see none of these probes will performe well in our setting, with the low hybridization efficiency and low Tm.
+We can see **none** of these probes will performe well in our setting, with the low hybridization efficiency and low Tm.
 
 <p align="center"><img width=120%% src="https://github.com/BokaiZhu/microbiomeFISH/blob/master/media/gamma_80%25_result.png"></p>
 
@@ -190,6 +192,8 @@ License: bkzhu@stanford.edu
 
 Once the Usearch is ready, we can use the ```Dual_optimization()``` and ```Trio_optimization()``` function in r.
 
+Coming back to the gammaproteobacteria probe designing problem, with the strategy of combining single probes, we can let ARB start with lower coverage requirements. This time, we let ARB design probes >55% coverage and 10 out-group hits, instead of 80% and 10 we tried before.
+
 ```R
 ## in R
 
@@ -199,13 +203,23 @@ filtered=probeFilter(lowhit,35,46,0.39) # filters conditions as before
 candidate=subset(filtered,filtered$secondary>-2 & filtered$Hybeff>0.8) # filtered-out single probes
 
 # then the combining and testing the probes
+# the input include: the candidate table from previous step
+# target group name
+# number of combinations to try
+# directory to usearch
+# reference sequence pool file (here the class.fasta file)
 dual_comb=Dual_optimization(candidate,target_group = "Gammaproteobacteria",
                             num_result=3000,
                             usearch_location="~/applications/usearch/usearch6.0.98_i86linux32",
                             reference_fasta = "~/paper/Num1/code_related/microbiomeFISH/data/Class.fasta")
 ```
+ And the result produced by combining two probes:
+ <p align="center"><img width=70%% src="https://github.com/BokaiZhu/microbiomeFISH/blob/master/media/pool_result.png"></p>
 
-Coming back to the gammaproteobacteria probe designing problem, with the strategy of combining single probes, we can let ARB start with lower coverage requirements. This time, we let ARB design probes >55% coverage and 10 out-group hits, instead of 80% and 10 we tried before.
+We can see by combing low coverage pools we can aquire probe sets that will **work well in our experimental conditions**, and at the same time with **coverage > 80% and optimal out-group hitting**. 
+
+For other even more challenging target groups, as we have showed in the [paper]() by targeting the phylum **Firmicutes**, we used ARB to find probes covering **>30%** with desired out-group hitting, then used function ```Trio_optimization()``` to combine three probes together, achieving a **77%** coverage of the diverse Firmicutes.
+
 ### F&Q
 
 **Q**: I'm having trouble installing arb in Windows.
