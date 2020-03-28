@@ -172,12 +172,21 @@ The head of the resulting candidate table. We can see none of these probes will 
 
 How do we tackle this problem? We can combine multiple single probes, with each probe having lower-than-required coverage, together covering the desired numbers and providing the specificity. In the package we provided two functions to combine and test the coverage and specificity of 2 or 3 probe-combinations. Those steps require another stand-alone sowftware **Usearch**, an ultrafast blast tool. We also suggest this step to be performed on a server, since it could take time and space.
 
-Install the Usearch software [here](https://www.drive5.com/usearch/download.html). Successful installment should give:
+[Download](https://www.drive5.com/usearch/download.html) Usearch and install it. The detailed guidence can be found [here](https://www.drive5.com/usearch/manual/install.html). Successful installment should give:
+
 ```zsh
 ## in your bash console
+~/directory/to/usearch/file/usearch6.0.98_i86linux32orsomethinglikethat
 
 ```
 
+```zsh
+usearch v11.0.667_i86linux32, 4.0Gb RAM (462Gb total), 40 cores
+(C) Copyright 2013-18 Robert C. Edgar, all rights reserved.
+https://drive5.com/usearch
+
+License: bkzhu@stanford.edu
+```
 ### F&Q
 
 **Q**: I'm having trouble installing arb in Windows.
