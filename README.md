@@ -164,7 +164,7 @@ We have briefly mentioned before, that in some cases, single probe does not prov
 gammaproteobacteria=read_arb("~/paper/Num1/code_related/microbiomeFISH/data/gamma_10_80_1000.prb")
 lowhit=subset(gammaproteobacteria,gammaproteobacteria$third<=10)
 filtered=probeFilter(lowhit,35,46,0.39)
-candidate=subset(filtered,filtered$secondary>-2 & new$Hybeff>0.8)
+candidate=subset(filtered,filtered$secondary>-2 & filtered$Hybeff>0.8)
 ```
 The head of the resulting candidate table. We can see none of these probes will performe well in our setting, with the low hybridization efficiency and low Tm.
 
@@ -172,7 +172,7 @@ The head of the resulting candidate table. We can see none of these probes will 
 
 How do we tackle this problem? We can combine multiple single probes, with each probe having lower-than-required coverage, together covering the desired numbers and providing the specificity. In the package we provided two functions to combine and test the coverage and specificity of 2 or 3 probe-combinations. Those steps require another stand-alone sowftware **Usearch**, an ultrafast blast tool. We also suggest this step to be performed on a server, since it could take time and space.
 
-[Download](https://www.drive5.com/usearch/download.html) Usearch and install it. The detailed guidence can be found [here](https://www.drive5.com/usearch/manual/install.html). Successful installment should give:
+[Download](https://www.drive5.com/usearch/download.html) Usearch (can be used directly). The detailed guidence can be found [here](https://www.drive5.com/usearch/manual/install.html). Successful installment should give:
 
 ```R
 ## in your R console
@@ -187,6 +187,25 @@ https://drive5.com/usearch
 
 License: bkzhu@stanford.edu
 ```
+
+Once the Usearch is ready, we can use the ```Dual_optimization()``` and ```Trio_optimization()``` function in r.
+
+```R
+## in R
+
+gammaproteobacteria=read_arb("~/paper/Num1/code_related/microbiomeFISH/data/gamma_10_55_1000.prb") # the 55-10 ARB results
+lowhit=subset(gammaproteobacteria,gammaproteobacteria$third<=10) # less than 10 hits outgroup
+filtered=probeFilter(lowhit,35,46,0.39) # filters conditions as before
+candidate=subset(filtered,filtered$secondary>-2 & filtered$Hybeff>0.8) # filtered-out single probes
+
+# then the combining and testing the probes
+dual_comb=Dual_optimization(candidate,target_group = "Gammaproteobacteria",
+                            num_result=3000,
+                            usearch_location="~/applications/usearch/usearch6.0.98_i86linux32",
+                            reference_fasta = "~/paper/Num1/code_related/microbiomeFISH/data/Class.fasta")
+```
+
+Coming back to the gammaproteobacteria probe designing problem, with the strategy of combining single probes, we can let ARB start with lower coverage requirements. This time, we let ARB design probes >55% coverage and 10 out-group hits, instead of 80% and 10 we tried before.
 ### F&Q
 
 **Q**: I'm having trouble installing arb in Windows.
