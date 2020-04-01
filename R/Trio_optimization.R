@@ -56,6 +56,8 @@ Trio_optimization=function(df,target_group,usearch_location,reference_fasta,num_
     system(paste(usearch_location,"-usearch_global", "temp.fasta -db",temp_header_fasta, "-id 1 -strand plus -maxaccepts 100000 -blast6out temp2.txt --quiet"))
     #system("~/applications/usearch/usearch_test -usearch_global temp.fasta -db phylum_header.fasta -id 1 -strand plus -maxaccepts 10000 -blast6out temp2.txt")
     #
+    if (file.size("./temp2.txt") == 0) next
+    # empty temp2.txt protection
 
     # check the result
     usearch_out=read.table("./temp2.txt")
@@ -85,7 +87,6 @@ Trio_optimization=function(df,target_group,usearch_location,reference_fasta,num_
   # clear out unused columns
   contain_comb$target1=NULL
   contain_comb$target2=NULL
-  contain_comb$target3=NULL
   file.remove(temp_header_fasta)
   # clear out complete
   return(contain_comb)
