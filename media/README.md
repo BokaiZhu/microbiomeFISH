@@ -1,4 +1,8 @@
 # Data deposition for MicroCart
+Note the deposited data summarized here is sufficient to perform all analyses presented in the corresponding manuscript.
+
+If any other type of information is needed, please contact Bokai Zhu via email ```zhubokai@mit.edu```.
+
 
 ## file descriptions
 
@@ -21,3 +25,11 @@
 ```microdsp_q3V2Counts.csv``` is a ```.csv``` that contains ROI level normalized DSP gene expression profiles (custom probes to bacteria).
 
 ```meta_analys_use.txt``` is a ```.txt``` that contains related metadata information for GeoMx DSP data.
+
+### MALDI related data:
+
+```Extracted_sigNormsize_all.csv``` is a ```.csv``` that contains ROI level normalized DSP gene expression profiles (WTA).
+
+```maldi_metaV2.csv``` is a ```.csv``` that contains ROI level normalized DSP gene expression profiles (custom probes to bacteria).
+
+```MALDI_images``` is a ```.txt``` that contains related metadata information for GeoMx DSP data.
