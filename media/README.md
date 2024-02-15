@@ -1,7 +1,7 @@
 # Data deposition for MicroCart
 Note the deposited data summarized here is sufficient to perform all analyses presented in the corresponding manuscript.
 
-If any other type of information is needed for other related research, feel free to contact Bokai Zhu via email ```zhubokai@mit.edu```.
+If any other type of information is needed for your interest, feel free to contact Bokai Zhu via email ```zhubokai@mit.edu```.
 
 
 ## file descriptions
