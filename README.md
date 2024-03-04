@@ -9,6 +9,7 @@ An R package with wrapped-up probe designing functions presented in the [manuscr
     - [ARB install](#ARB-installation)
     - [Sequence pool database](#Sequence-pool-database)
     - [microbiomeFISH install](#R-package-and-dependencies)
+    - [Optional Usearch install](#R-package-and-dependencies)
 - [Probe designing showcase](#probe-designing-showcase)
     - [Part 1 arb](#part-1-arb)
     - [Part 2 R](#part-2-r)
