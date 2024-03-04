@@ -119,7 +119,6 @@ Usearch will be utilized for fast alignment process, to optimize the designing p
 ```R
 ## in your R console
 system("~/directory/to/usearch/file/usearch6.0.98_i86linux32-or-something-like-that")
-
 ```
 
 ```zsh
@@ -127,7 +126,7 @@ usearch v11.0.667_i86linux32, 4.0Gb RAM (462Gb total), 40 cores
 (C) Copyright 2013-18 Robert C. Edgar, all rights reserved.
 https://drive5.com/usearch
 
-License: bkzhu@stanford.edu
+License: <your email etc>
 ```
 
 
@@ -191,9 +190,9 @@ We can see **none** of these probes will perform well in our setting, with the l
 
 <p align="center"><img width=120%% src="https://github.com/BokaiZhu/microbiomeFISH/blob/master/media/gamma_80%25_result.png"></p>
 
-How do we tackle this problem? We can combine multiple single probes, with each probe having lower-than-required coverage, together covering the desired numbers and providing the specificity. In the package we provided two functions to combine and test the coverage and specificity of 2 or 3 probe-combinations. Those steps require another stand-alone sowftware **Usearch**, an ultrafast blast tool. We also suggest this step to be performed on a server, since it could take time and space.
+How do we tackle this problem? We can combine multiple single probes, with each probe having lower-than-required coverage, together covering the desired numbers and providing specificity. In the package, we provided two functions to combine and test the coverage and specificity of 2 or 3 probe-combinations. Those steps require another stand-alone software **Usearch**, an ultrafast blast tool. We also suggest this step to be performed on a server, since it could take time and space.
 
-Once the Usearch is ready, we can use the ```Dual_optimization()``` and ```Trio_optimization()``` function in r.
+Once the Usearch is installed in your system, we can use the ```Dual_optimization()``` and ```Trio_optimization()```functions in r.
 
 Coming back to the gammaproteobacteria probe designing problem, with the strategy of combining single probes, we can let ARB start with lower coverage requirements. This time, we let ARB design probes >55% coverage and 10 out-group hits, instead of 80% and 10 we tried before.
 
@@ -219,18 +218,18 @@ dual_comb=Dual_optimization(candidate,target_group = "Gammaproteobacteria",
  And the result produced by combining two probes:
  <p align="center"><img width=70%% src="https://github.com/BokaiZhu/microbiomeFISH/blob/master/media/pool_result.png"></p>
 
-We can see by combing low coverage pools we can aquire probe sets that will **work well in our experimental conditions**, and at the same time with **coverage > 80% and optimal out-group hitting**. 
+We can see by combing low coverage pools we can acquire probe sets that will **work well in our experimental conditions**, and at the same time with **coverage > 80% and optimal out-group hitting**. 
 
-For other even more challenging target groups, as we have showed in the [paper]() by targeting the phylum **Firmicutes**, we used ARB to find probes covering **>30%** with desired out-group hitting, then used function ```Trio_optimization()``` to combine three probes together, achieving a **77%** coverage of the diverse Firmicutes.
+For other even more challenging target groups, as we have shown in the [paper]() by targeting the phylum **Firmicutes**, we used ARB to find probes covering **>30%** with desired out-group hitting, then used function ```Trio_optimization()``` to combine three probes together, achieving a **77%** coverage of the diverse Firmicutes.
 
 ### F&Q
 
 **Q**: I'm having trouble installing arb/ using the R package in Windows.
 
-**A**: For installing arb in Windows, please follow the instruction from their website, basically installing from source. Also when using the R package in Windows, because the command of calling outside functions is different from Mac and Linux, it is suggested to change some of the source code in the package when we are using 'systems' command: for example use ```system(paste("bash -c",usearch_location,"-usearch_global", "temp.fasta -db",temp_header_fasta, "-id 1 -strand plus -maxaccepts 100000 -blast6out temp2.txt --quiet"))``` instead.
+**A**: For installing arb in Windows, please follow the instructions from their website, basically installing from source. Also when using the R package in Windows, because the command of calling outside functions is different from Mac and Linux, it is suggested to change some of the source code in the package when we are using 'systems' command: for example use ```system(paste("bash -c",usearch_location,"-usearch_global", "temp.fasta -db",temp_header_fasta, "-id 1 -strand plus -maxaccepts 100000 -blast6out temp2.txt --quiet"))``` instead.
 
 **Q**: During target site selection in ARB, what parameters I should input?
 
-**A**: Generally, depends on the biological question you want to ask. Usually a probe with 100% coverage and 0 outgroup hitting will be rare to find. Play with the parameters a few times until you feel comfotable about the result. Also, you should tolerate some out-group hitting sometimes. You can check the matching result in ARB, and if you see your Staphylococcus probe is hitting sequences annotated as "unknown_staphylococcus", it is advised to ignore these hitting.
+**A**: Generally, depends on the biological question you want to ask. Usually, a probe with 100% coverage and 0 outgroup hitting will be rare to find. Play with the parameters a few times until you feel comfotable about the result. Also, you should tolerate some out-group hitting sometimes. You can check the matching result in ARB, and if you see your Staphylococcus probe is hitting sequences annotated as "unknown_staphylococcus", it is advised to ignore these hitting.
 
 
