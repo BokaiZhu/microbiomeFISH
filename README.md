@@ -1,8 +1,7 @@
 <p align="left"><img width=20%% src="https://github.com/BokaiZhu/microbiomeFISH/blob/master/media/microbiome_fish.png"></p>
 
 # microbiomeFISH
-A protocol for designing oligos for microbiome samples. Under construction now
-<p align="left"><img width=80%% src="https://github.com/BokaiZhu/microbiomeFISH/blob/master/media/place-holder.png"></p>
+An R package with wrapped-up probe designing functions presented in the [manuscript](link). NOTE: GITHUB IN PROGRESS.
 
 ## Table of content
 
@@ -222,9 +221,9 @@ For other even more challenging target groups, as we have showed in the [paper](
 
 ### F&Q
 
-**Q**: I'm having trouble installing arb in Windows.
+**Q**: I'm having trouble installing arb/ using the R package in Windows.
 
-**A**: 
+**A**: For installing arb in Windows, please follow the instruction from their website, basically installing from source. Also when using the R package in Windows, because the command of calling outside functions is different from Mac and Linux, it is suggested to change some of the source code in the package when we are using 'systems' command: for example use ```system(paste("bash -c",usearch_location,"-usearch_global", "temp.fasta -db",temp_header_fasta, "-id 1 -strand plus -maxaccepts 100000 -blast6out temp2.txt --quiet"))``` instead.
 
 **Q**: During target site selection in ARB, what parameters I should input?
 
