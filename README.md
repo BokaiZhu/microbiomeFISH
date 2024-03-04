@@ -18,9 +18,10 @@ An R package with wrapped-up probe designing functions presented in the [manuscr
 ## Requirements 
 
 Several software/datafiles are required for this protocol:
-1. **ARB** for initial probe design
-2. The curated **human intestinal 16s rRNA pool** files, this is the probe designing pool 
-3. **R**, **OligoArrayAux** and **microbiomeFISH** r package for downstream probe screening, modified from [DECIPHER](http://www2.decipher.codes/)
+1. **ARB** for initial probe design.
+2. The curated **human intestinal 16s rRNA pool** files, this is the probe designing pool.
+3. **R**, **OligoArrayAux** and **microbiomeFISH** r package for downstream probe screening, modified from [DECIPHER](http://www2.decipher.codes/).
+4. Optional: **Usearch** for fast alignment. Utilized in dual or tri probe combination design.
 
 ## ARB installation and setup
 
@@ -109,8 +110,25 @@ If you are using Rstudio on a server, you need to tell R to use the local user's
 ### in R
 Sys.setenv(PATH=paste(Sys.getenv("PATH"), "/home/user/bin", sep=":"))
 ```
-Now  youshould be able to call oligoarrayaux in R (Rstudio) on a server.
+Now  you should be able to call oligoarrayaux in R (Rstudio) on a server.
 
+## (Optional) Usearch:
+
+Usearch will be utilized for fast alignment process, to optimize the designing process for multiple probe combination designing. Details can be found: [Download](https://www.drive5.com/usearch/download.html) Usearch (can be used directly). The detailed guidance can be found [here](https://www.drive5.com/usearch/manual/install.html). Successful installment should give:
+
+```R
+## in your R console
+system("~/directory/to/usearch/file/usearch6.0.98_i86linux32-or-something-like-that")
+
+```
+
+```zsh
+usearch v11.0.667_i86linux32, 4.0Gb RAM (462Gb total), 40 cores
+(C) Copyright 2013-18 Robert C. Edgar, all rights reserved.
+https://drive5.com/usearch
+
+License: bkzhu@stanford.edu
+```
 
 
 ## Probe designing showcase
@@ -174,22 +192,6 @@ We can see **none** of these probes will perform well in our setting, with the l
 <p align="center"><img width=120%% src="https://github.com/BokaiZhu/microbiomeFISH/blob/master/media/gamma_80%25_result.png"></p>
 
 How do we tackle this problem? We can combine multiple single probes, with each probe having lower-than-required coverage, together covering the desired numbers and providing the specificity. In the package we provided two functions to combine and test the coverage and specificity of 2 or 3 probe-combinations. Those steps require another stand-alone sowftware **Usearch**, an ultrafast blast tool. We also suggest this step to be performed on a server, since it could take time and space.
-
-[Download](https://www.drive5.com/usearch/download.html) Usearch (can be used directly). The detailed guidence can be found [here](https://www.drive5.com/usearch/manual/install.html). Successful installment should give:
-
-```R
-## in your R console
-system("~/directory/to/usearch/file/usearch6.0.98_i86linux32-or-something-like-that")
-
-```
-
-```zsh
-usearch v11.0.667_i86linux32, 4.0Gb RAM (462Gb total), 40 cores
-(C) Copyright 2013-18 Robert C. Edgar, all rights reserved.
-https://drive5.com/usearch
-
-License: bkzhu@stanford.edu
-```
 
 Once the Usearch is ready, we can use the ```Dual_optimization()``` and ```Trio_optimization()``` function in r.
 
