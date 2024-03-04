@@ -5,11 +5,12 @@ An R package with wrapped-up probe designing functions presented in the [manuscr
 
 ## Table of content
 
-- [Preparation](#preparation)
-    - [ARB install](#ARB-installation)
-    - [Sequence pool database](#Sequence-pool-database)
-    - [microbiomeFISH install](#R-package-and-dependencies)
-    - [Optional Usearch install](#R-package-and-dependencies)
+- [Preparation](#Requirements)
+    - [ARB install](#ARB-installation-and-setup)
+    - [Sequence pool database](#16s-rRNA-sequence-pool-database)
+    - [microbiomeFISH install](#R-package:-'microbiomeFISH')
+    - [OligoArrayAux install](#OligoArrayAux-(oligo-structures))
+    - [Optional Usearch install](#(Optional)-Usearch)
 - [Probe designing showcase](#probe-designing-showcase)
     - [Part 1 arb](#part-1-arb)
     - [Part 2 R](#part-2-r)
