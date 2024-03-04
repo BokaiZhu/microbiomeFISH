@@ -1,4 +1,15 @@
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# Function
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+#' Filter candidate probes
+#'
+#' This function will
+#'
+#' @param object A Seurat object
+#' @param reduction.list A list of two dimensional reductions, one for each of
+#' @return Seurat object containing a nearest-neighbor object, KNN graph, and
 
+#'
 
 
 probeFilter= function(candidate_probes, FA, Temperature, ions){
