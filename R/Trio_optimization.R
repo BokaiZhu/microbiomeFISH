@@ -1,4 +1,16 @@
-
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# Function
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+#' Produces probe combination (3 probes) that with optmized coverage and specificity for the target group.
+#' Note this function need Usearch installed the system and callable.
+#'
+#' @param df a prefiltered good quality candidate probes, generated from function probeFilter
+#' @param target_group target group name
+#' @param usearch_location a string for the path to usearch function (installed already in the system)
+#' @param reference_fasta curated 16s sequence pool with relevant taxa annotation (avaliable in github)
+#' @param num_result number of combinations to be generated
+#' @return dataframe probe combinations
+#'
 
 Trio_optimization=function(df,target_group,usearch_location,reference_fasta,num_result=200){
 

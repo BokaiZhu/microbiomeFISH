@@ -1,4 +1,13 @@
-
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# Function
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+#' Read in .prb file from ARB output.
+#'
+#' This function reads in .prb file from ARB output and reformats it for subsequent steps.
+#'
+#' @param prb_file A .prb file generated from ARB
+#' @return dataframe of reformatted .prb file
+#'
 
 read_arb= function(prb_file){
   read_in=read.table(prb_file, skip = 8,sep='|', fill = NA)

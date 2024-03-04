@@ -2,13 +2,14 @@
 # Function
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 #' Filter candidate probes
-#' add
-#' This function will
 #'
-#' @param object A Seurat object
-#' @param reduction.list A list of two dimensional reductions, one for each of
-#' @return Seurat object containing a nearest-neighbor object, KNN graph, and
-
+#' This function will filter candidate probes with desired properties.
+#'
+#' @param candidate_probes A data frame generated from function 'read_arb' function
+#' @param FA Formamide percentage used in experiment (hybridization)
+#' @param Temperature Temperature used in experiment (hybridization)
+#' @param ions Salt concentration used in experiment (hybridization)
+#' @return dataframe with the calculated secondary structure score, hybridization efficiency, and Tm
 #'
 
 
