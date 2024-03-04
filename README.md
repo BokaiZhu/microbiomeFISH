@@ -1,7 +1,7 @@
 <p align="left"><img width=20%% src="https://github.com/BokaiZhu/microbiomeFISH/blob/master/media/microbiome_fish.png"></p>
 
 # microbiomeFISH
-A protocol for designing oligos for microbiome samples. Under construction now.
+An R package with wrapped-up probe designing functions presented in the [manuscript](link). NOTE: GITHUB IN PROGRESS.
 
 ## Table of content
 
