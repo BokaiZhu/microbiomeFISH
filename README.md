@@ -1,7 +1,7 @@
 <p align="left"><img width=20%% src="https://github.com/BokaiZhu/microbiomeFISH/blob/master/media/microbiome_fish.png"></p>
 
 # microbiomeFISH
-An R package with wrapped-up probe designing functions presented in the [manuscript](link). NOTE: This GitHub is still a work-in-progress, and the code is still being finalized. Early public accessibility was intended the accompany of the preprint.
+An R package with wrapped-up probe designing functions presented in the [manuscript](link). NOTE: This GitHub is still a work-in-progress, and the code is still being finalized. Early public accessibility was intended to accompany for the preprint.
 
 ## Table of content
 
