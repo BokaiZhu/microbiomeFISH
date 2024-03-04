@@ -144,14 +144,14 @@ view(staph)
 <p align="center"><img width=90%% src="https://github.com/BokaiZhu/microbiomeFISH/blob/master/media/r_input_arnb.png"></p>
 From left to right the columns are: candidate target sequence, length of target, region of the target, start site (Ecoli position), in-group sequence coverage, out-group hit (perfect match), out-group hit (+ 0.3 C), out-group hit (+ 0.6 C) and the corresponding candidate probe sequence.
 
-Then we will filter the candidate probes. Here we will perform the hybridization as the protocol described in the [paper](http:), therefore the input of the function will be 35% formamide, 46C hybridization, with 0.39Molar sodium (2 x SSCT). 
+Then we will filter the candidate probes. Here we will perform the hybridization as the protocol described in the [paper](http:https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4135741/), therefore the input of the function will be 35% formamide, 46C hybridization, with 0.39Molar sodium (2 x SSCT). 
 
 We will select the candidate probes with ΔGo2 > -1.5 kcal/mol (Good secondary structure described by [mathFISH](http://mathfish.cee.wisc.edu/helpdocuments.html#deltaG2%20series)), [predicted hybridization effieciency](https://aem.asm.org/content/80/16/5124)  > 85%. You can also select probes with the conventional Tm (at the supplied experiment condition) provided in the table.
 
 ```R
-# only test the ones with 100% coverage, since we have plenty of them
+# Only test the ones with 100% coverage, since we have plenty of them
 high_coverage <- subset(staph,staph$cover==18) 
-filtered <- probeFilter(high_coverage,35,46,0.39) # at the very harsh condidtion
+filtered <- probeFilter(high_coverage,35,46,0.39) # at the very harsh condition
 probes <- subset(filtered,filtered$secondary>-1.5 & filtered$Hybeff>0.85)
 View(probes)
 ```
@@ -169,7 +169,7 @@ lowhit=subset(gammaproteobacteria,gammaproteobacteria$third<=10)
 filtered=probeFilter(lowhit,35,46,0.39)
 View(filtered)
 ```
-We can see **none** of these probes will performe well in our setting, with the low hybridization efficiency and low Tm.
+We can see **none** of these probes will perform well in our setting, with the low hybridization efficiency and low Tm.
 
 <p align="center"><img width=120%% src="https://github.com/BokaiZhu/microbiomeFISH/blob/master/media/gamma_80%25_result.png"></p>
 
