@@ -8,7 +8,7 @@ An R package with wrapped-up probe designing functions presented in the [manuscr
 - [Preparation](#Requirements)
     - [ARB install](#ARB-installation-and-setup)
     - [Sequence pool database](#16s-rRNA-sequence-pool-database)
-    - [microbiomeFISH install](#R-package:-microbiomeFISH)
+    - [microbiomeFISH install](#R-package-microbiomeFISH)
     - [OligoArrayAux install](#OligoArrayAux-(oligo-structures))
     - [Optional Usearch install](#(Optional)-Usearch)
 - [Probe designing showcase](#probe-designing-showcase)
@@ -42,7 +42,7 @@ These files are the curated sequence pool containing 12,932 near full-length 16s
 [Here](https://github.com/BokaiZhu/microbiomeFISH/tree/master/data) we have 6 files in the data folder, each with the same sequence pool fasta file, but header contains the assigned taxonomy information at each phylogeny level. You can download the fasta files and use them as inputs for probe design.
 
 
-## R package: microbiomeFISH
+## R package microbiomeFISH
 
 [R](https://www.r-project.org/) is a prerequisite for this part. You can install the microbiomeFISH r package in R by:
 
