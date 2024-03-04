@@ -25,7 +25,6 @@ Dual_optimization=function(df,target_group,usearch_location,reference_fasta,num_
   # a dataframe to store the combination
 
   per_comb=as.integer(num_result/dim(combination)[2]) # the number of results per combination
-
   contain_comb=matrix(NA,per_comb*dim(combination)[2],2) # make the result table, with rows of per_com*conbination possibilities
   contain_comb=as.data.frame(contain_comb)
   colnames(contain_comb)=c("target1","target2")
@@ -42,7 +41,6 @@ Dual_optimization=function(df,target_group,usearch_location,reference_fasta,num_
       contain_comb$probe2[(i-1)*per_comb+j]=gsub("U","T",reverseComplement(RNAStringSet(contain_comb$target2[(i-1)*per_comb+j])))
 
     }
-
   }
 
   # now we make the fasta files:
@@ -65,9 +63,6 @@ Dual_optimization=function(df,target_group,usearch_location,reference_fasta,num_
     # start the usearching
     system(paste(usearch_location,"-usearch_global", "temp.fasta -db",temp_header_fasta, "-id 1 -strand plus -maxaccepts 100000 -blast6out temp2.txt --quiet"))
     #system("~/applications/usearch/usearch_test -usearch_global temp.fasta -db phylum_header.fasta -id 1 -strand plus -maxaccepts 10000 -blast6out temp2.txt")
-    #
-
-    # check the result
 
     ##
     if (file.size("./temp2.txt") == 0) next
@@ -78,10 +73,8 @@ Dual_optimization=function(df,target_group,usearch_location,reference_fasta,num_
     probe1=subset(usearch_out,usearch_out$V1==names[1])
     probe2=subset(usearch_out,usearch_out$V1==names[2])
 
-
     probe1_target=unique(probe1$V2) # actually no unique needed here
     probe2_target=unique(probe2$V2)
-
 
     combine=c(as.character(probe1_target),as.character(probe2_target))
     goodhit=sum(grepl(target_group,unique(combine))) # the correct hit number

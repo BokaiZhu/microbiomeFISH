@@ -23,9 +23,7 @@ Trio_optimization=function(df,target_group,usearch_location,reference_fasta,num_
   system(paste(awk_command,reference_fasta,">",temp_header_fasta))
 
   # a dataframe to store the combination
-
   per_comb=as.integer(num_result/dim(combination)[2]) # the number of results per combination
-
   contain_comb=matrix(NA,per_comb*dim(combination)[2],3) # make the result table, with rows of per_com*conbination possibilities
   contain_comb=as.data.frame(contain_comb)
   colnames(contain_comb)=c("target1","target2","target3")
@@ -44,7 +42,6 @@ Trio_optimization=function(df,target_group,usearch_location,reference_fasta,num_
       contain_comb$probe3[(i-1)*per_comb+j]=gsub("U","T",reverseComplement(RNAStringSet(contain_comb$target3[(i-1)*per_comb+j])))
 
     }
-
   }
 
   # now we make the fasta files:
@@ -73,7 +70,6 @@ Trio_optimization=function(df,target_group,usearch_location,reference_fasta,num_
 
     # check the result
     usearch_out=read.table("./temp2.txt")
-
     names=unique(usearch_out$V1)
     probe1=subset(usearch_out,usearch_out$V1==names[1])
     probe2=subset(usearch_out,usearch_out$V1==names[2])
