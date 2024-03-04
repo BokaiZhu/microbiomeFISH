@@ -15,33 +15,33 @@ An R package with wrapped-up probe designing functions presented in the [manuscr
     - [Part 3 Optional multiple probe design](#part-3-optional-multiple-probe-design)
 - [F&Q](#f&q)    
 
-## Preparation
+## Requirements 
 
-Several softwares/datafiles are required for this protocol:
+Several software/datafiles are required for this protocol:
 1. **ARB** for initial probe design
 2. The curated **human intestinal 16s rRNA pool** files, this is the probe designing pool 
-3. **R**, **OligoArrayAux** and **microbiomeFISH** r package for downstream probe screening, modeifeied from [DECIPHER](http://www2.decipher.codes/)
+3. **R**, **OligoArrayAux** and **microbiomeFISH** r package for downstream probe screening, modified from [DECIPHER](http://www2.decipher.codes/)
 
-### ARB installation and setup
+## ARB installation and setup
 
-[The ARB software](http://http://www.arb-home.de/) is a graphically oriented package comprising various tools for sequence database handling and data analysis. We will use this software for intial targeting sequece identification. The installation files can be [downloaded](http://www.arb-home.de/downloads.html). The detailed guidance can be found [here](http://download.arb-home.de/release/latest/arb_README.txt). For Mac users, it is suggested to use Macport to easily install ARB.
+[The ARB software](http://http://www.arb-home.de/) is a graphically oriented package comprising various tools for sequence database handling and data analysis. We will use this software for initial targeting sequence identification. The installation files can be [downloaded](http://www.arb-home.de/downloads.html). The detailed guidance can be found [here](http://download.arb-home.de/release/latest/arb_README.txt). For Mac users, it is suggested to use Macport to easily install ARB.
 
-If you are experience trouble installing arb in windows, refer to the **F&Q** section
+If you are experiencing trouble installing arb in Windows, refer to the **F&Q** section
 
-After successfuly installing ARB, you should be able to fire it up in terminal by typing arb:
+After successfully installing ARB, you should be able to fire it up in the terminal by typing arb:
 
 <p align="center"><img width=70%% src="https://github.com/BokaiZhu/microbiomeFISH/blob/master/media/arb_start.gif"></p>
 
-### Sequence Pool Database
+## 16s rRNA sequence pool database
 
-These files are the curated sequence pool containing 12,932 near full length 16s rRNA sequences, assigned with taxonomy information. The detailed process of producing these files can be found in the [paper]().
+These files are the curated sequence pool containing 12,932 near full-length 16s rRNA sequences, assigned with taxonomy information. The detailed process of producing these files can be found in the [paper]().
 
 [Here](https://github.com/BokaiZhu/microbiomeFISH/tree/master/data) we have 6 files in the data folder, each with the same sequence pool fasta file, but header contains the assigned taxonomy information at each phylogeny level. You can download the fasta files and use them as inputs for probe design.
 
 
-### R package and dependencies
+## R package: 'microbiomeFISH'
 
-[R](https://www.r-project.org/) is a prerequiste for this part (not too surprising). You can install the microbiomeFISH r package in R by:
+[R](https://www.r-project.org/) is a prerequisite for this part. You can install the microbiomeFISH r package in R by:
 
 ```R
 install.packages("devtools") # if you have not installed "devtools" package yet
@@ -49,7 +49,9 @@ install.packages("BiocManager") # if you have not installed bioconductor yet
 devtools::install_github("BokaiZhu/microbiomeFISH",auth_token="230b203a38ae97ff5187cb24ba75205dce2e27d5", repos=BiocManager::repositories(),force = TRUE)
 ```
 
-This r package also requires **OligoArrayAux** to calculate the secondary structure of the probes. [Download](http://mfold.rna.albany.edu/?q=DINAMelt/OligoArrayAux) and install the software. 
+## OligoArrayAux (oligo structures)
+
+This r package also requires functions from **OligoArrayAux** to calculate the secondary structure of the probes. [Download](http://www.unafold.org/Dinamelt/software/oligoarrayaux.php) and install the software. 
 
 For people installing from source (.tar.bz2/.tar.gz files), here is a brief tutorial:
 
@@ -79,18 +81,18 @@ make install
 ```
 Finally, add the path to oligoauxarray to your system files ```~/.bashrc``` or ```~/.bash_profile```:
 ```sh
-### wait for yh's code to check
-export PATH=$PATH:/Path/To/Jellyfish/jellyfish-2.2.6
+### in your bash terminal :
+export PATH=$PATH:/Path/to/oligoarrayaux-3.8/..
 ```
 
-Test if the software is installed correctly by runing the code in r :
+Test if the software is installed correctly by running the code in r :
 
 ```R
 ### in R
 system("hybrid-min -V") # calling the hybrid-min function in r
 
-# or when you are using R on a windows system:
-system("bash something hybrid-min -V") # calling the hybrid-min function in r
+# or when you are using R on a Windows system:
+system("/Path/TO/Function/hybrid-min -V") # calling the hybrid-min function in r
 ```
 it should give something like:
 ```
@@ -107,7 +109,7 @@ If you are using Rstudio on a server, you need to tell R to use the local user's
 ### in R
 Sys.setenv(PATH=paste(Sys.getenv("PATH"), "/home/user/bin", sep=":"))
 ```
-Now should be able to call oligoarrayaux in R on a server.
+Now  youshould be able to call oligoarrayaux in R (Rstudio) on a server.
 
 
 
