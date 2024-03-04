@@ -49,7 +49,7 @@ These files are the curated sequence pool containing 12,932 near full-length 16s
 ```R
 install.packages("devtools") # if you have not installed "devtools" package yet
 install.packages("BiocManager") # if you have not installed bioconductor yet
-devtools::install_github("BokaiZhu/microbiomeFISH",auth_token="230b203a38ae97ff5187cb24ba75205dce2e27d5", repos=BiocManager::repositories(),force = TRUE)
+devtools::install_github("BokaiZhu/microbiomeFISH", repos=BiocManager::repositories(),force = TRUE)
 ```
 
 ## OligoArrayAux (oligo structures)
