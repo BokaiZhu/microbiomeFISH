@@ -156,7 +156,7 @@ In some other cases you might want to tolerate a few outgroup hitting, as some o
 
 Now you can load your saved .prb file into r for downstream analysis by:
 ```R
-Library(microbiomeFISH)
+library(microbiomeFISH)
 staph <- read_arb("/directory/to/.prb") # read and format arb output
 view(staph)
 ```
