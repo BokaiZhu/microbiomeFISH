@@ -35,7 +35,9 @@ probeFilter= function(candidate_probes, FA, Temperature, ions){
   for (i in c(1:nrow(candidate_probes))){
     sequence2test=as.character(candidate_probes$probe[i])
     Tm=Tm_GC(sequence2test,Na=ions*1000)
-    Tm_FA=chem_correction(Tm, fmd=FA, DMSO = FALSE)
+    #Tm_FA=chem_correction(Tm, fmd=FA, DMSO = FALSE) # too depended on outer function
+    # use simple correction instead
+    Tm_FA = Tm - 0.65 * FA
     candidate_probes$Tm[i]=Tm_FA
   }
 
